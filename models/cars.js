@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 
-const carsSchema = new mongoose.Schema({
-    name: String,
+const carSchema = new mongoose.Schema({
+    make: String,
+    model: String,
+    year: Number,
     isYourFavoriteCar: Boolean,
 });
 
-const cars = mongoose.model('Cars', carsSchema);
+const Car = mongoose.model('Car', carSchema);
 
-module.exports = cars;
+module.exports = Car;
