@@ -30,6 +30,10 @@ app.get('/cars/new', (req, res) => {
     res.render('/cars-collections/new.ejs');
 });
 
+app.get('/cars/:carId', (req, res) => {
+    const foundCar = await Car.findById(req.params.carId);
+    res.render('cars-collections/show.ejs', { car: foundCar });
+});
 
 app.listen(3000, () => {
     console.log('Listening to port 3000')

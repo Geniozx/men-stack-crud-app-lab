@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= car.name %></title>
+  </head>
+  <body>
+    <h1><%= car.name %></h1>
+    <% if (car.isYourFavoriteCar) { %>
+      <p>This car is your favorite car!</p>
+    <% } else { %>
+      <p>This car is okay, but not your favorite.</p>
+    <% } %>
+
+    <form action="/cars-collections/<%= car._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete <%= car.name %></button>
+    </form>
+    <!-- Add more details about the fruit here -->
+    <a href="/cars-collections/<%= car._id %>/edit">Edit Car</a>
+    <a href="/">Home Page</a>
+    <a href="/cars-collections/">Back to Cars</a>
+    <a href="/cars-collections/new">Add New Car</a>
+  </body>
+</html>
