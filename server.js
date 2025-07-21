@@ -17,6 +17,18 @@ app.use(express.urlendcoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
 
+app.get("/", async (req, res) => {
+    res.render('index.ejs');
+});
+
+app.get('/cars', async (req, res) => {
+    const allCars = await Car.find({});
+    res.render('cars-collections/index.ejs', {cars: allCars});
+})
+
+app.get('/cars/new', (req, res) => {
+    res.render('/cars-collections/new.ejs');
+});
 
 
 app.listen(3000, () => {
