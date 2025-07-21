@@ -11,22 +11,12 @@ mongoose.connection.on('coneted', () => {
     console.log(`Connected to MONGODB ${mongoose.connection.name}`)
 });
 
+const Car = require('/models/cars.js');
 
-const carsSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  image: String,
-})
+app.use(express.urlendcoded({ extended: false }));
+app.use(methodOverride('_method'));
+app.use(morgan('dev'));
 
-const cars = mongoose.model('Cars', carsSchema)
-module.exports = cars
-
-
-app.get("/", async (req, res) => {
-  res.render("index.ejs");
-});
-
-app.get('/')
 
 
 app.listen(3000, () => {
