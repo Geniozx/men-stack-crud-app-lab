@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit <%= car.name %></title>
+</head>
+<body>
+  <h1>Edit <%= car.name %></h1>
+  <form action="/car/<%= car._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= car.name %>"/>
+
+    <label for="isYourFavoriteCar">You're favorite car?</label>
+    <input type="checkbox" name="isYourFavoriteCar" id="isYourFavoriteCar" <% if (car.isYourFavoriteCar) { %> checked <% }%>/>
+    <button type="submit">Update Car</button>
+  </form>
+  <a href="/cars">Back to Cars</a>
+</body>
+</html>

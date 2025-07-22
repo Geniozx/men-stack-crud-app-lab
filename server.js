@@ -57,7 +57,15 @@ app.get('/cars/:carId/edit', async (req, res) => {
     res.render('/cars-collections/edit.ejs', { car: foundCar });
 });
 
-
+app.put('/cars/:carId', async (req, res) => {
+    if (req.body.isYourFavoriteCar === 'on') {
+        req.body.isYourFavoriteCar = true;
+    } else {
+        req.body.isYourFavoriteCar = false;
+    }
+    await Car.findByIdAndUpdate(req.params.carId, req.body);
+    res.redirect(`/cars/${req.params.carId}`);
+})
 
 app.listen(3000, () => {
     console.log('Listening to port 3000')
