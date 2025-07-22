@@ -63,9 +63,9 @@ app.put('/cars/:carId', async (req, res) => {
     } else {
         req.body.isYourFavoriteCar = false;
     }
-    await Car.findByIdAndUpdate(req.params.carId, req.body, { new: true });
+    await Car.findByIdAndUpdate(req.params.carId, req.body);
     res.redirect(`/cars/${req.params.carId}`);
-} )
+})
 
 app.listen(3000, () => {
     console.log('Listening to port 3000')
