@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit <%= car.make %> <%= car.model %> </title>
+  <title>Edit <%= car.make %> <%= car.model %> <%= car.year %></title>
 </head>
 <body>
-  <h1>Edit <%= car.make %></h1>
+  <h1>Edit <%= car.make %> <%= car.model %> <%= car.year %></h1>
   <form action="/car/<%= car._id %>?_method=PUT" method="POST">
     <label for="make">Make</label>
       <input type="text" name="make" id="make" value="<%= car.make %>"/>
@@ -15,7 +15,6 @@
       <label for="year">Year</label>
       <input type="text" name="year" id="year" value="<%= car.year %>"/>
       <label for="isYourFavoriteCar">Is It Your Favorite Car?</label>
-      <input type="checkbox" name="isYourFavoriteCar" id="isYourFavoriteCar" />
     <input type="checkbox" name="isYourFavoriteCar" id="isYourFavoriteCar" <% if (car.isYourFavoriteCar) { %> checked <% }%>/>
     <button type="submit">Update Car</button>
   </form>

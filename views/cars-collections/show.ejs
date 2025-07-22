@@ -6,7 +6,7 @@
     <title><%= car.make %></title>
   </head>
   <body>
-    <h1><%= car.make %></h1>
+    <h1><%= car.make %> <%= car.model %> <%= car.year %></h1>
     <% if (car.isYourFavoriteCar) { %>
       <p>This car is your favorite car!</p>
     <% } else { %>
@@ -14,7 +14,7 @@
     <% } %>
 
     <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete <%= car.make %></button>
+      <button type="submit">Delete <%= car.make %> <%= car.model %> <%= car.year %></button>
     </form>
     <!-- Add more details about the fruit here -->
     <a href="/cars/<%= car._id %>/edit">Edit Car</a>

@@ -11,7 +11,7 @@
     <a href="/cars/new">Add New Car</a>
     <ul>
       <% cars.forEach(car => { %>
-        <li><a href="/cars/<%= car._id %>"><%= car.make %></a></li>
+        <li><a href="/cars/<%= car._id %>"><%= car.make %> <%= car.model %> <%= car.year %></a></li>
       <% }) %>
     </ul>
   </body>
